@@ -35,6 +35,7 @@ require('./api/angular')(chrome, internals);
 require('./api/controls')(chrome, internals);
 require('./api/template')(chrome, internals);
 require('./api/theme')(chrome, internals);
+require('./api/translations')(chrome, internals);
 
 chrome.bootstrap = function () {
   chrome.setupAngular();
