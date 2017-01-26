@@ -14,7 +14,19 @@ uiRoutes
 });
 
 uiModules.get('apps/management')
-.controller('managementIndicesCreate', function ($scope, kbnUrl, Private, Notifier, indexPatterns, es, config, Promise) {
+
+var translations = {
+  HEADLINE: 'What an awesome module!',
+};
+
+.config(['$translateProvider', function ($translateProvider) {
+  $translateProvider
+    .translations('en', translations)
+    .preferredLanguage('en');
+}]);
+
+.controller('managementIndicesCreate', function ($scope, kbnUrl, Private, Notifier, indexPatterns, es, config, Promise,
+                                                 $translate, $translatePartialLoader) {
   const notify = new Notifier();
   const refreshKibanaIndex = Private(RefreshKibanaIndex);
   const intervals = indexPatterns.intervals;
@@ -34,6 +46,10 @@ uiModules.get('apps/management')
 
   index.nameInterval = _.find(index.nameIntervalOptions, { name: 'daily' });
   index.timeField = null;
+
+  $translatePartialLoader.addPart('../../../../translations');
+  // $translatePartialLoader.addPart('../../../../../../ui');
+  $translate.refresh();
 
   $scope.canExpandIndices = function () {
     // to maximize performance in the digest cycle, move from the least
