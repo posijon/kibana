@@ -42,7 +42,7 @@
             <label>
               <span translate="KIBANA-TIME_FIELD_NAME"></span>
               &nbsp;
-              <kbn-info info="This field will be used to filter events with the global time filter"></kbn-info>
+              <kbn-info info="{{ 'KIBANA-TIME_FIELD_DESC' | translate }}"></kbn-info>
               &nbsp;
               <small>
                 <a ng-click="refreshFieldList();" translate="KIBANA-REFRESH_FIELDS"></a>
@@ -91,7 +91,7 @@
             </div>
             <label>
               <span translate="KIBANA-INDEX_PATTERN_INTERVAL"></span>&nbsp;
-              <kbn-info info="The interval at which index names rotate."></kbn-info>
+              <kbn-info info="{{ 'KIBANA-INDEX_PATTERN_INTERVAL_DESC' | translate }}"></kbn-info>
             </label>
             <select
               required
